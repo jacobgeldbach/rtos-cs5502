@@ -7,11 +7,10 @@
  */
 
 #include <stdio.h>
+#include <unistd.h>
 #include <inttypes.h>
 #include "sdkconfig.h"
 #include "driver/gpio.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 
 void app_main(void)
 {
@@ -25,15 +24,15 @@ void app_main(void)
         for (i = 0; i < 5; i++) {
             /* Set the LED GPIO pin high */
             gpio_set_level(GPIO_NUM_13, 1);
-            vTaskDelay(pdMS_TO_TICKS(500));
+            usleep(500000);
 
             /* Set the LED GPIO pin low */
             gpio_set_level(GPIO_NUM_13, 0);
-            vTaskDelay(pdMS_TO_TICKS(1000));
+            usleep(1000000);
         }
 
         /* Full cycle complete, remain off for 5 seconds before repeating */
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        usleep(5000000);
     }
 
 }
