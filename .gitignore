@@ -1,0 +1,15 @@
+# ESP-IDF build output
+build/
+sdkconfig.old
+
+# Fetched component dependencies (pinned by dependencies.lock)
+managed_components/
+
+# ctags databases
+tags
+
+# Submission archives
+*.tar.gz
+
+# Local WiFi credentials
+wifi_secrets.h
